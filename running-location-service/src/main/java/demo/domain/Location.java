@@ -1,5 +1,9 @@
 package demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,6 +11,7 @@ import java.util.Date;
  * Created by Xinkang on 1/24/18.
  */
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "RUNNING LOCATIONS")
 public class Location {
     enum GpsStatus {
@@ -30,10 +35,10 @@ public class Location {
     private final UnitInfo unitInfo;
 
     @Embedded
-    @AttributeOverrides(
+    @AttributeOverrides({
             @AttributeOverride(name = "fmi", column = @Column(name = "medical_fmi")),
             @AttributeOverride(name = "bfr", column = @Column(name = "medical_bfr"))
-    )
+    })
     private MedicalInfo medicalInfo;
 
     private double latitude;
@@ -53,8 +58,20 @@ public class Location {
     private RunnerMovementType runnerMovementType = RunnerMovementType.STOPPED;
     private String serviceType;
 
-    public Location(String runningId) {
+    public Location() {
+        this.unitInfo = null;
+    }
+
+    @JsonCreator
+    public Location(@JsonProperty("runningId") String runningId) {
         this.unitInfo = new UnitInfo(runningId);
     }
 
+    public Location(UnitInfo unitInfo) {
+        this.unitInfo = unitInfo;
+    }
+
+    public String getRunningId() {
+        return this.unitInfo == null ? null : this.unitInfo.getRunningId();
+    }
 }
