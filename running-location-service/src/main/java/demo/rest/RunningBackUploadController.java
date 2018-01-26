@@ -31,7 +31,7 @@ public class RunningBackUploadController {
     }
 
     @RequestMapping(value = "/running/{movementType}", method = RequestMethod.GET)
-    public Page<Location> findByMovementType(@PathVariable String movementType, @RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
+    public Page<Location> findByMovementType(@PathVariable String movementType, @RequestParam(name = "page") Integer page, @RequestParam(name = "size") Integer size) {
         return this.locationService.findByRunnerMovementType(movementType, new PageRequest(page, size));
     }
 

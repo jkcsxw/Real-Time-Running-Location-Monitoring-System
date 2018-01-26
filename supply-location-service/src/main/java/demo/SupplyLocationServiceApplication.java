@@ -1,15 +1,14 @@
 package demo;
 
-/**
- * Created by Xinkang on 1/23/18.
- */
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Created by Xinkang on 1/25/18.
+ */
 @SpringBootApplication
-public class RunningLocationServiceApplication {
+public class SupplyLocationServiceApplication {
     public static void main(String[] args){
-        SpringApplication.run(RunningLocationServiceApplication.class,args);
+        SpringApplication.run(SupplyLocationServiceApplication.class,args);
     }
 }

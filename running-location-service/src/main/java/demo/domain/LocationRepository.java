@@ -11,8 +11,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
 /**
  * Created by Xinkang on 1/24/18.
  */
-@RepositoryRestResource(path = "locations")
+//@RepositoryRestResource(path = "locations", collectionResourceRel = "location")
 public interface LocationRepository extends JpaRepository<Location, Long>{
-    @RestResource(path = "runners")
+//    @RestResource(path = "runners")
     Page<Location> findByRunnerMovementType(@Param("movementType") Location.RunnerMovementType movementType, Pageable pageable);
 }
