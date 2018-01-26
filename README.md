@@ -5,3 +5,10 @@
 Spring data jpa, spring data rest
 ### 2. supply-location service 
 spring data rest, mongodb, rabbitmq
+
+## //TODO List
+### 3. running info analysis service 
+spring data rest, mysql
+### 4. running-location-distribution
+### 5. running-location-simulator
+### 6. running-location-updater
