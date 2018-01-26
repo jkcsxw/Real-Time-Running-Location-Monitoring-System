@@ -1,0 +1,15 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: running-info-analysis-service
+  datasource:
+    url: spring.datasource.url=jdbc:mysql://localhost:3306/RunningInformationAnalysisService
+    username: ${YOUR NAME FOR DATABASE}
+    password: ${YOUR PASSWORD}
+    test-while-idle: true # keep the connection alive if ilde for a long time
+  jpa:
+    show-sql: true # show or not log for each query
+    hibernate:
+      ddl-auto: update # Hibernate ddl auto -> update: databse schema updated automatically to java entities found
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
